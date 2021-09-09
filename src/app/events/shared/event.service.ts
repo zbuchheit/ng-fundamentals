@@ -4,6 +4,10 @@ import { IEvent } from '.';
 
 @Injectable({providedIn: 'root'})
 export class EventService {
+  updateEvent(event: IEvent | undefined) {
+    let index = EVENTS.findIndex(x => x.id = event!.id);
+    EVENTS[index] = event!;
+  }
   getEvents(): Observable<IEvent[]> {
     let subject = new Subject<IEvent[]>();
     setTimeout(() => {subject.next(EVENTS); subject.complete();}, 100);
