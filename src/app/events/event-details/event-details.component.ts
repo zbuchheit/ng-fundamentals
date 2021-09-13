@@ -9,12 +9,16 @@ import { EventService } from '../shared/event.service';
   .container { padding-left:20px; padding-right: 20px; }
   .event-image {height: 100px;}
   a {cursor: pointer}
+  .btn { margin:2px }
   `]
 })
 
 export class EventDetailsComponent {
   event?: IEvent;
   addMode: boolean;
+  filterBy: string = 'all';
+  sortBy: string = 'votes';
+
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
   ngOnInit() {
     this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
