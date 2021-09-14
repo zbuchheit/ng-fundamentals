@@ -7,14 +7,14 @@ import { JQ_TOKEN } from '.';
 })
 export class ModalTriggerDirective implements OnInit {
   private el: HTMLElement;
-  @Input('model-trigger') modelId: string;
+  @Input('modal-trigger') modalId: string;
   constructor(ref: ElementRef, @Inject(JQ_TOKEN) private $ :any) {
     this.el = ref.nativeElement;
   }
 
   ngOnInit() {
     this.el.addEventListener('click', e => {
-      this.$(`#${this.modelId}`).modal({});
+      this.$(`#${this.modalId}`).modal({});
     })
   }
 }
