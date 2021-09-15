@@ -8,6 +8,9 @@ import {
   EventService,
   CreateSessionComponent,
   SessionListComponent,
+  UpvoteComponent,
+  VoterService,
+  LocationValidator,
   DurationPipe
 } from './events/index';
 import { NgModule } from '@angular/core';
@@ -47,7 +50,9 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     SimpleModalComponent,
+    UpvoteComponent,
     ModalTriggerDirective,
+    LocationValidator,
     DurationPipe
   ],
   providers: [
@@ -60,6 +65,7 @@ let jQuery = window['$'];
     },
     EventRouteActivator,
     EventListResolver,
+    VoterService,
     AuthService,
     {
     provide: 'canDeactivateCreateEvent',
