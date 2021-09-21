@@ -1,8 +1,8 @@
 import {
   CreateEventComponent,
   EventDetailsComponent,
-  EventRouteActivator,
   EventThumbnailComponent,
+  EventResolver,
   EventListResolver,
   EventListComponent,
   EventService,
@@ -27,7 +27,7 @@ import { NavBarComponent } from './events/nav/navbar.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 let toastr:Toastr = window['toastr'];
 let jQuery = window['$'];
 
@@ -36,7 +36,8 @@ let jQuery = window['$'];
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   declarations: [
     EventsAppComponent,
@@ -63,8 +64,8 @@ let jQuery = window['$'];
     {
       provide: JQ_TOKEN, useValue: jQuery
     },
-    EventRouteActivator,
     EventListResolver,
+    EventResolver,
     VoterService,
     AuthService,
     {
